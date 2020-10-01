@@ -28,7 +28,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": []
           },
@@ -123,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ProjectHydraWEB"
+    }
+  },
+  "defaultProject": "ProjectHydraWEB",
+  "cli": {
+    "analytics": "a89da2bf-41f0-40d6-95e5-b84b221a6cf6"
+  }
 }

@@ -1,0 +1,23 @@
+<div>
+  <table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Stopień</th>
+            <th>Opcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.rankName != null ? user.rankName : "Brak"}}</td>
+            <td>
+                <button type="button"  [routerLink]="['../details/', user.id]" class="btn btn-primary">Szczegóły</button>
+                <button type="button"  [routerLink]="['../update/', user.id]" class="btn btn-warning">Edycja</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>

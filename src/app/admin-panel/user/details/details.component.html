@@ -1,0 +1,14 @@
+<button class="btn btn-primary" routerLink="../../home">Powróć do listy</button>
+<div *ngIf="userDetails | async; else loading">
+  <p>
+    Imię: {{user.firstName}}
+  </p>
+
+  <p>
+    Nazwisko: {{user.lastName}}
+  </p>
+</div>
+
+<ng-template #loading>
+  Wczytywanie...
+</ng-template>

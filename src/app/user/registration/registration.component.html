@@ -1,0 +1,66 @@
+<img src="/assets/img/add_user.png" alt="new user" class="mx-auto d-block" style="max-width: 200px;">
+<br />
+<h3 class="text-center">Utwórz nowe konto</h3>
+<div class="p-4">
+  <form [formGroup]="service.formModel" autocomplete="off" (submit)="onSubmit()">
+    <div class="alert alert-danger" role="alert" *ngIf="errors.length > 0">
+      <ul>
+        <li *ngFor="let error of errors">
+          {{ error }}
+        </li>
+      </ul>
+    </div>
+    <div class="form-group required">
+      <label>Email</label>
+      <input type="email" class="form-control" formControlName="Email">
+      <label class="text-danger"
+        *ngIf="service.formModel.get('Email').touched && service.formModel.get('Email').errors?.email">Zły adres
+        email</label>
+      <label class="text-danger"
+        *ngIf="service.formModel.get('Email').touched && service.formModel.get('Email').errors?.required">Pole jest
+        wymagane</label>
+    </div>
+    <div class="form-group required">
+      <label>Imię</label>
+      <input type="text" class="form-control" formControlName="FirstName">
+      <label class="text-danger"
+        *ngIf="service.formModel.get('FirstName').touched && service.formModel.get('FirstName').errors?.required">Pole
+        jest wymagane</label>
+    </div>
+    <div class="form-group required">
+      <label>Nazwisko</label>
+      <input type="text" class="form-control" formControlName="LastName">
+      <label class="text-danger"
+        *ngIf="service.formModel.get('LastName').touched && service.formModel.get('LastName').errors?.required">Pole
+        jest wymagane</label>
+    </div>
+    <div formGroupName="Passwords">
+      <div class="form-group required">
+        <label>Hasło</label>
+        <input type="password" class="form-control" formControlName="Password">
+        <label class="text-danger"
+          *ngIf="service.formModel.get('Passwords.Password').touched && service.formModel.get('Passwords.Password').errors?.required">Pole
+          jest wymagane</label>
+        <label class="text-danger"
+          *ngIf="service.formModel.get('Passwords.Password').touched && service.formModel.get('Passwords.Password').errors?.minlength">Hasło
+          musi zawierać 7 lub więcej znaków</label>
+      </div>
+      <div class="form-group required">
+        <label>Powtórz hasło</label>
+        <input type="password" class="form-control" formControlName="ConfirmPassword">
+        <label class="text-danger"
+          *ngIf="service.formModel.get('Passwords.ConfirmPassword').touched && service.formModel.get('Passwords.ConfirmPassword').errors?.required">Pole
+          jest wymagane</label>
+        <label class="text-danger"
+          *ngIf="service.formModel.get('Passwords.ConfirmPassword').touched && service.formModel.get('Passwords.ConfirmPassword').errors?.passwordMismatch">Hasła
+          do siebie nie pasują</label>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-8 offset-md-2">
+        <button type="submit" class="btn btn-primary btn-lg btn-block" [disabled]="!service.formModel.valid">Zarejestruj
+          się</button>
+      </div>
+    </div>
+  </form>
+</div>

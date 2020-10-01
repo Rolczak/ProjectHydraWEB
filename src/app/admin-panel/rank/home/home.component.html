@@ -1,0 +1,24 @@
+<div>
+  <button class="btn btn-primary" type="button" routerLink="../create">Utwórz nowy stopień</button>
+  <table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>Id</th>
+            <th>Nazwa</th>
+            <th>Nr w hierarchi</th>
+            <th>Opcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let rank of ranks">
+            <td>{{rank.id}}</td>
+            <td>{{rank.name}}</td>
+            <td>{{rank.hierarchy}}</td>
+            <td>
+                <button type="button" [routerLink]="['../update/', rank.id]" class="btn btn-primary">Edytuj</button>
+                <button type="button" (click)="delete(rank.id, rank.name)" class="btn btn-danger">Usuń</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
