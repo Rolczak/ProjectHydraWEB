@@ -1,0 +1,26 @@
+<h3>Lista zajęć</h3>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>Id</th>
+      <th>Temat</th>
+      <th>Prowadzący</th>
+      <th>Poddodział</th>
+      <th>Data</th>
+      <th>Czas trwania</th>
+      <th>Komentarz</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let classVM of classes">
+            <td>{{classVM.id}}</td>
+            <td>{{classVM.topic}}</td>
+            <td>{{classVM.teacherName}}</td>
+            <td>{{classVM.unit}}</td>
+            <td>{{classVM.date}}</td>
+            <td>{{classVM.time}}h</td>
+            <td>{{classVM.comment}}</td>
+      </tr>
+  </tbody>
+</table>

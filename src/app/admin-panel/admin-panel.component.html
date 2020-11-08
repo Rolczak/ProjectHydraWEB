@@ -1,19 +1,50 @@
 <div class="row mx-0 mt-1">
-  <div class="btn-group-vertical flex-column">
+  <div class="col-md-2">
     <h5>Menu</h5>
-    <div class="btn-group" role="group">
-      <div ngbDropdown placement="right-top" class="d-inline-block ">
-        <button class="btn btn-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle dropdown</button>
-        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-          <button ngbDropdownItem>Action - 1</button>
-          <button ngbDropdownItem>Another Action</button>
-          <button ngbDropdownItem>Something else is here</button>
+    <div class="btn-group-vertical">
+      <div class="btn-group mr-3">
+        <button type="button" class="btn btn-primary" routerLink="user/home">Użytkownicy</button>
+        <div class="btn-group" ngbDropdown placement="right-top" role="group">
+          <button class="btn btn-primary dropdown-toggle-split" ngbDropdownToggle></button>
+          <div class="dropdown-menu" ngbDropdownMenu>
+            <button ngbDropdownItem routerLink="user/home">Index</button>
+          </div>
         </div>
+      </div>
+      <div class="btn-group mr-3">
+        <button type="button" class="btn btn-primary" routerLink="rank/home">Stopnie</button>
+        <div class="btn-group" ngbDropdown placement="right-top" role="group">
+          <button class="btn btn-primary dropdown-toggle-split" ngbDropdownToggle></button>
+          <div class="dropdown-menu" ngbDropdownMenu>
+            <button ngbDropdownItem routerLink="rank/home">Index</button>
+            <button ngbDropdownItem routerLink="rank/create">Utwórz</button>
+          </div>
+        </div>
+      </div>
+      <div class="btn-group mr-3">
+        <button type="button" class="btn btn-primary" routerLink="unit/home">Pododdziały</button>
+        <div class="btn-group" ngbDropdown placement="right-top" role="group">
+          <button class="btn btn-primary dropdown-toggle-split" ngbDropdownToggle></button>
+          <div class="dropdown-menu" ngbDropdownMenu>
+            <button ngbDropdownItem routerLink="unit/home">Index</button>
+            <button ngbDropdownItem routerLink="unit/create">Utwórz</button>
+          </div>
+        </div>
+      </div>
+      <div class="btn-group mr-3">
+        <button type="button" class="btn btn-primary" routerLink="classes/home">Zajęcia</button>
+        <div class="btn-group" ngbDropdown placement="right-top" role="group">
+          <button class="btn btn-primary dropdown-toggle-split" ngbDropdownToggle></button>
+          <div class="dropdown-menu" ngbDropdownMenu>
+            <button ngbDropdownItem routerLink="classes/home">Index</button>
+            <button ngbDropdownItem routerLink="unit/create">Utwórz</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-
-  <div class="col-10">
+  <div class="col-md-10">
     <router-outlet>
 
     </router-outlet>

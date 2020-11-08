@@ -16,6 +16,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { ForbidenComponent } from './forbiden/forbiden.component';
 import { DefaultComponent } from './layouts/default/default.component';
+import { ConnectionRefusedComponent } from './erros/connection-refused/connection-refused.component';
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -31,6 +32,7 @@ export function tokenGetter() {
     AdminPanelComponent,
     ForbidenComponent,
     DefaultComponent,
+    ConnectionRefusedComponent,
   ],
   imports: [
     BrowserModule,
