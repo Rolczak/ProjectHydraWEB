@@ -34,7 +34,9 @@ export class UpdateComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.id = params['unitId'];
     });
-    this.unit = this.unitService.getById(this.id).pipe(tap(unit => this.selectedParentUnit = unit.parentUnitName)).pipe(tap(unit => this.unitForm.patchValue(unit)));
+    this.unit = this.unitService.getById(this.id)
+    .pipe(tap(unit => this.selectedParentUnit = unit.parentUnitName))
+    .pipe(tap(unit => this.unitForm.patchValue(unit)));
     this.userService.getForSelect().subscribe(data => this.users = data);
     this.unitService.getAll().subscribe(data => this.units = data);
     this.unitForm = this.fb.group({
@@ -48,7 +50,7 @@ export class UpdateComponent implements OnInit {
 
   onSubmit(){
     this.unitService.update(this.id,this.unitForm.getRawValue()).subscribe(res=>{
-      console.log("unit edted");
+      console.log("unit edited");
       this.router.navigateByUrl('/dashboard/admin/unit/home');
     });
 }

@@ -1,0 +1,41 @@
+<style>
+  .grade20{
+    background-color: #e52d2d;
+  }
+  .grade25{
+    background-color: #eb641a;
+  }
+  .grade30{
+    background-color: #eb901a;
+  }
+  .grade35{
+    background-color: #d3ba36;
+  }
+  .grade40{
+    background-color: #a0c236;
+  }
+  .grade45{
+    background-color: #5fb823;
+  }
+  .grade50{
+    background-color: #3ea52a;
+  }
+</style>
+
+<h3>Lista moich ocen</h3>
+<table class="table">
+  <thead class="thead-dark">
+      <tr>
+          <th>Zajęcia</th>
+          <th>Komentarz</th>
+          <th>Ocena</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let grade of grades" ngClass="{{'grade'+grade.gradeNumber*10}}">
+          <td>{{grade.lessonName}}</td>
+          <td>{{grade.comment}}</td>
+          <td>{{grade.gradeNumber}}</td>
+      </tr>
+  </tbody>
+</table>

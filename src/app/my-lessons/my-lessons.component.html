@@ -1,0 +1,25 @@
+<h3>Lista moich zajęć</h3>
+<table class="table">
+  <thead class="thead-dark">
+      <tr>
+          <th>Temat</th>
+          <th>Prowadzący</th>
+          <th>Pododdział</th>
+          <th>Miejsce</th>
+          <th>Data</th>
+          <th>Czas</th>
+          <th>Komentarz</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let lesson of lessons" [ngClass]= "{'bg-warning': lesson == nearestLesson}">
+          <td>{{lesson.topic}}</td>
+          <td>{{lesson.teacherName}}</td>
+          <td>{{lesson.unit}}</td>
+          <td>{{lesson.place}}</td>
+          <td>{{lesson.date | date: 'dd-MM-yyyy HH:mm'}}</td>
+          <td>{{lesson.time+'h'}}</td>
+          <td>{{lesson.comment}}</td>
+      </tr>
+  </tbody>
+</table>

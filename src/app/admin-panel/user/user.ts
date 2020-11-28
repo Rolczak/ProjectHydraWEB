@@ -13,4 +13,6 @@ export interface UserDetails {
   rankId: number;
   phoneNumber: string;
   birthday: Date;
+  unitId: number;
+  unitName: string;
 }

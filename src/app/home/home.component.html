@@ -1,7 +1,13 @@
+<h3>Zalogowany użytkownik</h3>
 <div class="card m-5" style="width: 18rem;" *ngIf="userDetails">
-<ul class="list-group">
-  <li class="list-group-item"><strong>Email: </strong>{{userDetails.email}}</li>
-  <li class="list-group-item"><strong>First Name: </strong>{{userDetails.firstName}}</li>
-  <li class="list-group-item"><strong>Last Name: </strong>{{userDetails.lastName}}</li>
-</ul>
+  <div class="card-body">
+    <ul class="list-group">
+      <li class="list-group-item"><strong>Email: </strong>{{userDetails.email}}</li>
+      <li class="list-group-item"><strong>Imię: </strong>{{userDetails.firstName}}</li>
+      <li class="list-group-item"><strong>Nazwisko: </strong>{{userDetails.lastName}}</li>
+    </ul>
+    <a routerLink="../editProfile" class="btn btn-warning card-link">Edytuj Profil</a>
+    <a routerLink="../changePassword" class="btn btn-danger">Zmień hasło</a>
+  </div>
 </div>
+

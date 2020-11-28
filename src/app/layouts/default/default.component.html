@@ -1,9 +1,30 @@
-<nav class="navbar navbar-dark bg-dark">
-  <a href="" class="navbar-brand text-white">ProjectHydra</a>
-  <a href="" class="nav-link" routerLink="/dashboard/admin">Admin Panel</a>
+<nav class="navbar navbar-dark bg-dark navbar-expand-md">
+  <a routerLink="home" class="navbar-brand">
+    <img src="/assets/img/logowhite.png" width="250" />
+  </a>
+  <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+    &#9776;
+  </button>
+
+  <div class="collapse navbar-collapse" [ngbCollapse]="isMenuCollapsed">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" (click)="isMenuCollapsed = true" routerLink="myLessons"  >Moje zajęcia</a>
+      </li>
+      <li class="nav-item">
+        <a href="" class="nav-link" (click)="isMenuCollapsed = true" routerLink="myGrades">Moje oceny</a>
+      </li>
+      <li class="nav-item">
+        <a href="" class="nav-link" (click)="isMenuCollapsed = true" routerLink="myUnit">Mój pododdział</a>
+      </li>
+      <li class="nav-item">
+        <a href="" *ngIf="isAdmin" (click)="isMenuCollapsed = true" class="nav-link" routerLink="admin">Admin Panel</a>
+      </li>
+    </ul>
+  </div>
   <button class="btn btn-danger my-2 my-sm0" (click)="onLogout()">Logout</button>
 </nav>
 
-<div class="content">
+<div class="content p-5">
   <router-outlet></router-outlet>
- </div>
+</div>

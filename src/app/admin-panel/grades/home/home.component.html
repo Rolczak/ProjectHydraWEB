@@ -1,0 +1,22 @@
+<h3>Lista Ocen</h3>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>Id</th>
+      <th>Id osoby</th>
+      <th>Ocena</th>
+      <th>Id zajęć</th>
+      <th>Komentarz</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let grade of grades">
+        <td>{{grade.id}}</td>
+        <td><a [routerLink]="['/dashboard/admin/user/details',grade.userId]" >{{grade.userId}}</a> </td>
+        <td>{{grade.gradeNumber}}</td>
+        <td>{{grade.lessonId}}</td>
+        <td>{{grade.comment}}</td>
+      </tr>
+  </tbody>
+</table>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserAuthService } from 'src/app/shared/user.service';
 
 @Component({
   selector: 'app-default',
@@ -8,9 +9,11 @@ import { Router } from '@angular/router';
 })
 export class DefaultComponent implements OnInit {
 
-  constructor(private router:Router) { }
-
+  constructor(private router:Router, private service: UserAuthService) { }
+  public isMenuCollapsed = false;
+  isAdmin: boolean;
   ngOnInit(): void {
+      this.isAdmin = this.service.isAdmin();
   }
 
   onLogout(){

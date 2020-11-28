@@ -30,6 +30,10 @@ export class UserService {
     return this.httpClient.put<UserDetails>(this.apiServer+'/appuser/'+id, JSON.stringify(user), this.httpOptions);
   }
 
+  editProfile(id, user):Observable<UserDetails>{
+    return this.httpClient.put<UserDetails>(this.apiServer+'/userProfile/'+id, JSON.stringify(user), this.httpOptions);
+  }
+
   getForSelect():Observable<UserVM[]>{
     return this.httpClient.get<UserVM[]>(this.apiServer+'/appuser/selectList');
   }

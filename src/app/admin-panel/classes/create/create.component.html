@@ -1,0 +1,39 @@
+<h3>Dodaj nowe zajęcia</h3>
+<form [formGroup]="classForm" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label>Prowadzący:</label>
+    <select formControlName="teacherId" class="form-control">
+      <option *ngFor="let user of users" [ngValue]="user.id">{{user.rankName +" " + user.firstName[0] + ". " + user.lastName}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Dla pododdziału:</label>
+    <select formControlName="unitId" class="form-control">
+      <option *ngFor="let unit of units" [ngValue]="unit.id">{{unit.name}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Temat zajęć: </label>
+    <input type="text" formControlName="topic" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Miejsce zajęć: </label>
+    <input type="text" formControlName="place" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Data: </label>
+    <input type="datetime-local" formControlName="date" class="form-control" >
+  </div>
+  <div class="form-group">
+    <label>Czas trwania(h): </label>
+    <input type="number" formControlName="time" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Komentarz: </label>
+    <input type="text" formControlName="comment" class="form-control">
+  </div>
+  <button class="btn btn-primary" type="submit">Zapisz</button>
+</form>
+
+

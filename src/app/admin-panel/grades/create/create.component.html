@@ -1,0 +1,34 @@
+<h3>Dodaj nową ocene</h3>
+<form [formGroup]="gradeForm" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label>Osoba:</label>
+    <select formControlName="userId" class="form-control">
+      <option *ngFor="let user of users" [ngValue]="user.id">{{user.rankName +" " + user.firstName[0] + ". " + user.lastName}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Ocena:</label>
+    <select formControlName="gradeNumber" class="form-control">
+      <option value="2.0">2</option>
+      <option value="2.5">2.5</option>
+      <option value="3.0">3</option>
+      <option value="3.5">3.5</option>
+      <option value="4.0">4</option>
+      <option value="4.5">4.5</option>
+      <option value="5.0">5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Za zajęcia:</label>
+    <select formControlName="lessonId" class="form-control">
+      <option *ngFor="let lesson of lessons" [ngValue]="lesson.id">{{lesson.topic}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Komentarz: </label>
+    <input type="text" formControlName="comment" class="form-control">
+  </div>
+  <button class="btn btn-primary" type="submit">Zapisz</button>
+</form>
+

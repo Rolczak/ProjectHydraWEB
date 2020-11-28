@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../shared/user.service';
+import { UserAuthService } from '../shared/user.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,7 +8,8 @@ import { UserService } from '../shared/user.service';
 export class HomeComponent implements OnInit {
   userDetails;
 
-  constructor(private service: UserService) { }
+  isAdmin: boolean;
+  constructor(private service: UserAuthService) { }
 
   ngOnInit(): void {
     this.service.getUserProfile().subscribe(

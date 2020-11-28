@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/shared/user.service';
-import { renderFlagCheckIfStmt } from '@angular/compiler/src/render3/view/template';
-import { HttpErrorResponse } from '@angular/common/http';
+import { UserAuthService } from 'src/app/shared/user.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -11,7 +10,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class RegistrationComponent implements OnInit {
   errors: string[];
 
-  constructor(public service: UserService) {}
+  constructor(public service: UserAuthService, private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.service.formModel.reset();
@@ -21,16 +20,10 @@ export class RegistrationComponent implements OnInit {
   onSubmit() {
     this.errors = [];
     this.service.register().subscribe(
-      (res: any) => {
-        if (res.succeded) {
-          this.service.formModel.reset();
-        } else {
-          res.errors.forEach((element) => {
-            console.log('test');
-          });
-        }
-      },
-      (err) => {
+      res => {
+        console.log(res);
+        this.router.navigate(["../login"],{relativeTo: this.route});},
+      err => {
         if (err.status === 400) {
           console.log(err.error.errors);
           let errorData = err.error.errors;
