@@ -44,7 +44,7 @@ export function tokenGetter() {
     MyUnitComponent,
     EditProfileComponent,
     ChangePasswordComponent,
-    NotFoundComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
